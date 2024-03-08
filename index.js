@@ -1,15 +1,16 @@
 const readline = require('readline');
-const readlineInterface = readline.createInterface(process.stdin, process.stdout);
+const rl = readline.createInterface(process.stdin, process.stdout);
 
 function ask(questionText) {
   return new Promise((resolve, reject) => {
-    readlineInterface.question(questionText, resolve);
+    rl.question(questionText, resolve);
   });
 }
 
 start();
 
 async function start() {
+  //line below is an example for your UNIQUE welcome message
   const welcomeMessage = `182 Main St.
 You are standing on Main Street between Church and South Winooski.
 There is a door here. A keypad sits on the handle.
