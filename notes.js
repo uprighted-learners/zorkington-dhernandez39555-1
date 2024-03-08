@@ -12,10 +12,11 @@
     -once solved, move to next room
     -tell user they are in y room and give description
     -have user do something in the room
+    -ad infinitum
 
     *Inventory Story*
         needs a place to store items (use an array bc this is a list)
-        push items into inventory , and remove items from our room (needs to be in a function so we can call it anytime)
+        push items into inventory, and remove items from our room (needs to be in a function so we can call it anytime)
             room:{
                 desc: somekind,
                 inventory: ["cheese", "a note written in blood","picture of Joe Biden"]
@@ -23,9 +24,28 @@
             if player is in room 2 && our item is in room 2, then push(item) into player inventory and remove item from room inventory
         drop items into the room, and remove them from our inventory (need to be a function so we can call at anytime)
 
-        need inventory display function
+        need inventory display function: as simple as console.log(playerInventory)
 
         lock/unlock doors -> manipulating state machine to add valid transitions
+
+        need 5 rooms (at minimum) each room looks similar to this:
+
+        room={
+            description: "this is a room with a gold chandelier and walls made out of glass with flowing magma behind them",
+            inventory: [ "bomb", "sign"],
+            TODO two methods below are simply examples of stuff to do
+            readSign: function (){
+                return "If you blow up the right spot, then you will escape this inferno."
+            }
+            explodeExit: function ("bomb"){ 
+                explodes a chunk of the glass, reveals a hidden door in the floor
+            }
+        }
+
+        *OPTIONAL*
+            -have puzzle to escape/win the game (give it a loss state too)
+            - status line, showing room name (maybe also show permanent commands, like inventory, drop, and grab, and open functions)
+            -word wrapping on prompts, rl.questions, and await ask (see end of readme for more)
 */
         // function grabItem(item){
         //     if(rooms[currentRoom].inventory.includes(item)){
@@ -54,7 +74,7 @@ let trafficLightStates= {
     green:["yellow"],
     yellow:["red"]
 }
-trafficLightStates.red.push(addedState)
+trafficLightStates.red.push(addedState) //example of manipulating state machine
 // console.log(trafficLightStates.red)
 
 let currentState = "green" //in Zorkington this will be reassigned A LOT
